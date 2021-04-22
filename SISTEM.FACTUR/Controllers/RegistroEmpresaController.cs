@@ -14,6 +14,7 @@ namespace SISTEM.FACTUR.Controllers
     {
         private modelList model;
         private BUPais bupais;
+        private BURegistroEmpresa buregistroempresa;
 
 
 
@@ -21,6 +22,7 @@ namespace SISTEM.FACTUR.Controllers
         {
             model = new modelList();
             bupais = new BUPais();
+            buregistroempresa = new BURegistroEmpresa();
 
         }
         // GET: RegistroEmpresa
@@ -35,6 +37,13 @@ namespace SISTEM.FACTUR.Controllers
             return View(model);
         }
 
-       
+
+        [AllowAnonymous]
+        [HttpPost]
+        public ActionResult validarRegistro(ENRegistroEmpresa paramss)
+        {
+            var rpt = buregistroempresa.validarRegistro(paramss);
+            return Json(new { dt = rpt });
+        }
     }
 }

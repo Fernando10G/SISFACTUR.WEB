@@ -1,5 +1,4 @@
-﻿const { param } = require("jquery");
-
+﻿
 
 $(document).ready(function () {
 

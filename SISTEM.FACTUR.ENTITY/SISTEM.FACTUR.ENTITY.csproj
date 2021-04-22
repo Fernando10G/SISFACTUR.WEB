@@ -46,6 +46,7 @@
     <Compile Include="Response\ResponseMoneda.cs" />
     <Compile Include="Response\ResponsePais.cs" />
     <Compile Include="Response\ResponsePImpuestos.cs" />
+    <Compile Include="Response\ResponseRegistroEmpresa.cs" />
     <Compile Include="Response\ResponseTImpuestos.cs" />
   </ItemGroup>
   <ItemGroup>
