@@ -82,8 +82,26 @@ $("#btnsiguiente").on("click", function () {
         paramss.ruc = ruc;
         paramss.email = email;
 
-        Post("RegistroEmpresa/validarRegistro", param).done(function (datos) {
-             
+        Post("RegistroEmpresa/validarRegistro", paramss).done(function (datos) {
+            if (datos.dt.response == "ok") {
+                $(".divregistroempresa").hide();
+                $(".divregistrousersuperadmin").show();
+
+            } else {
+                swal({
+                    position: "top-end",
+                    type: "error",
+                    title: datos.dt.response,
+                    text: 'Por favor valida el campo solicitado',
+                    showConfirmButton: true,
+                    timer: 60000,
+                    confirmButtonText: 'Cerrar'
+
+
+                })
+
+
+            }
 
 
         })

@@ -11,11 +11,13 @@
     <!-- CSS-->
     <link href="~/Content/Plugins/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/Style/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--JS-->
     <script src="~/Content/Plugins/js/jquery-3.1.1.min.js"></script>
     <script src="~/Content/Plugins/js/bootstrap.min.js"></script>
+    <script src="~/Content/Plugins/sweetalert2/sweetalert2.all.js"></script>
     <script>
-        var appUrl = "@Url.Content("~/")";
+        var appURL = "@Url.Content("~/")";
     </script>
 
 </head>
@@ -26,9 +28,9 @@
 
         <div class="row">
 
-            <form action="/" method="post">
+           
 
-                <div class="divregistroempresa" style="display:block">
+                <div class="divregistroempresa" style="display:none">
 
 
                     <div class="col-md-12">
@@ -176,7 +178,7 @@
 
                 </div>
 
-                <div class="divregistrousersuperadmin" style="display:none;">
+                <div class="divregistrousersuperadmin" style="display:block;">
 
                     <div class="col-md-12">
 
@@ -250,7 +252,7 @@
                     </div>
 
                 </div>
-            </form>
+            
 
         </div>
     </div>

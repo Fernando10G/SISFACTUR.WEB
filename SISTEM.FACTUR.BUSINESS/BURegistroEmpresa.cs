@@ -18,7 +18,7 @@ namespace SISTEM.FACTUR.BUSINESS
         {
             clients = new Client();
         }
-        public ResponseRegistroEmpresa listarPImpuestos(ENRegistroEmpresa paramss, string token)
+        public ResponseRegistroEmpresa validarRegistro(ENRegistroEmpresa paramss, string token)
         {
             try
             {

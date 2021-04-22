@@ -42,7 +42,8 @@ namespace SISTEM.FACTUR.Controllers
         [HttpPost]
         public ActionResult validarRegistro(ENRegistroEmpresa paramss)
         {
-            var rpt = buregistroempresa.validarRegistro(paramss);
+            string token = "";
+            var rpt = buregistroempresa.validarRegistro(paramss, token);
             return Json(new { dt = rpt });
         }
     }
