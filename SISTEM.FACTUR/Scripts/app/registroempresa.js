@@ -1,4 +1,5 @@
 ﻿
+document.getElementById("btnregistrar").disabled = true;
 
 $(document).ready(function () {
 
@@ -86,6 +87,10 @@ $("#btnsiguiente").on("click", function () {
             if (datos.dt.response == "ok") {
                 $(".divregistroempresa").hide();
                 $(".divregistrousersuperadmin").show();
+
+
+
+                document.getElementById("btnregistrar").disabled = true;
 
             } else {
                 swal({
