@@ -1,5 +1,7 @@
-﻿
+﻿const { fn } = require("jquery");
+
 document.getElementById("btnregistrar").disabled = true;
+
 
 $(document).ready(function () {
 
@@ -171,3 +173,109 @@ $("#txtemail").keyup(function () {
 
 })
 
+
+
+
+$("#btnregistrar").on("click", function () {
+    let razonsocial = $("#txtrazonsocial").val();
+    let ruc = $("#txtruc").val();
+    let email = $("#txtemail").val();
+    let idpais = $("#slpais").val();
+    let idmoneda = $("#slmoneda").val();
+    let direccion = $("#txtdireccion").val();
+    let idimpuesto = 0;
+    let idporcentaje = 0;
+    let venderimpuesto = 0;
+    let username = $("#txtusername").val();
+    let usuario = $("#txtusuario").val();
+    let contraseña = $("#txtcontraseña").val();
+    let confircontraseña = $("#txtconfircontraseña").val();
+
+    if ($("#rdsi").is(":checked") == true) {
+        idimpuesto = $("#sltipoimpuesto").val();
+        idporcentaje = $("#slporcentaje").val();
+        vendeimpuesto = 1;
+    }
+    if (username == "") {
+
+        $("#msjusername").html("* El campo de nombre de adminsitador no debe estar vacio").css("color", "red");
+        $("#txtusername").css("borde-color", " red");
+        $("#txtusername").facus();
+    } else if (usuario == "") {
+
+        $("#msjusuario").html("* El campo usuario no debe estar vacio").css("color", "red");
+        $("#txtusuario").css("borde-color", " red");
+        $("#txtusuario").facus();
+
+    } else if (contraseña == "") {
+
+        $("#msjpassword").html("* El campo contraseña no debe estar vacio").css("color", "red");
+        $("#txtcontraseña").css("borde-color", " red");
+        $("#txtcontraseña").facus();
+
+    } else if (confircontraseña == "") {
+
+        $("#msjconfirpassword").html("* El campo confirmar contraseña no debe estar vacio").css("color", "red");
+        $("#txtconfircontraseña").css("borde-color", " red");
+        $("#txtconfircontraseña").facus();
+
+    } else {
+
+        let params = new FormData();
+        let slfile = ($("#imagen"))[0].files[0];
+        params.append("file", slfile);
+        params.append("razonsocial.", razonsocial);
+        params.append("ruc", ruc);
+        params.append("email", email);
+        params.append("idpais", idpais);
+        params.append("idmoneda", idmoneda);
+
+        params.append("direccion", direccion);
+        params.append("idimpuesto", idimpuesto);
+        params.append("idporcentaje", idporcentaje);
+        params.append("vendeImpuesto", vendeImpuesto);
+        params.append("username", username);
+        params.append("usuario", usuario);
+        params.append("contraseña", contraseña);
+
+
+        PostImg("RegistroEmpresa/insertarEmpresa", params).done(function (datos) {
+            if (datos.dt.response == "ok") {
+
+                swal({
+                    position: 'top-end',
+                    type: 'succes',
+                    title: datos.dt.msj,
+                    text: datos.dt.text,
+                    showConfirmButton: true,
+                    timer: 60000,
+                    confirmButtonText: 'Cerrar'
+                }).then((result) => {
+
+                    if (result.value) {
+                        window.location = fnBaseURLWeb("Home/Index");
+
+                    } else {
+                        window.location = fnBaseURLWeb("Home/Index")
+
+                    }
+
+                })
+            } else {
+
+                swal({
+                    position: 'top-end',
+                    type: 'error',
+                    title: datos.dt.msj,
+                    text: datos.dt.text,
+                    showConfirmButton: true,
+                    timer: 60000,
+                    confirmButtonText: 'Cerrar'
+                })
+
+            }
+
+
+        })
+    }
+})
