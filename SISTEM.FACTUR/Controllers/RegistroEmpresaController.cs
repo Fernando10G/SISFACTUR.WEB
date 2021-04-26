@@ -94,7 +94,19 @@ namespace SISTEM.FACTUR.Controllers
                 string token = "";
                 var rpt = buregistroempresa.insertarEmpresa(paramss, token);
 
+                if(rpt.response == "ok")
+                {
 
+                    rpt = buregistroempresa.insertarUserAdminEmpresa(paramss, token);
+                    if (rpt.response == "ok")
+                    {
+
+                    }
+                }
+                else
+                {
+
+                }
 
              
                 return Json(new { dt = rpt });

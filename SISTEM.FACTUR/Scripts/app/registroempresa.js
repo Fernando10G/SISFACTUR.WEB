@@ -234,9 +234,9 @@ $("#btnregistrar").on("click", function () {
                     confirmButtonText: 'Cerrar'
                 }).then((result) => {
                     if (result.value) {
-                        window.location = fnBaseURLWeb("Home/Index");
+                       // window.location = fnBaseURLWeb("Home/Index");
                     } else {
-                        window.location = fnBaseURLWeb("Home/Index");
+                        //window.location = fnBaseURLWeb("Home/Index");
                     }
                 })
             } else {
