@@ -9,6 +9,8 @@ using System.Web;
 using System.Web.Mvc;
 using SISTEM.FACTUR.ENTITY.Encrypt;
 using System.IO;
+using System.Net.Mail;
+using System.Net;
 
 namespace SISTEM.FACTUR.Controllers
 {
@@ -100,11 +102,38 @@ namespace SISTEM.FACTUR.Controllers
                     rpt = buregistroempresa.insertarUserAdminEmpresa(paramss, token);
                     if (rpt.response == "ok")
                     {
-
+                        string url = string.Format("https://localhost:44303/ActivarCuenta/ActuvarCuenta?ruc=" + ruc);
+                        string para = email;
+                        string asunto = "Activación de cuenta | Sistema de facturación e inventario";
+                        string mensaje = "<b> GRACIAS POR REGISTRARSE</b>" + "</br></br>" + "Estas son tus credencialesde acceso" +
+                                            "</br></br>" + "Usuario:" + usuario + "</br></br>" +
+                                            "Usuario:" + usuario + "</br>" +
+                                            "Contraseña:" + contraseña + "</br>" +
+                                            "Cargo:" + paramss.cargo + "</br></br>" +
+                                            "Para poder acceder al sistema debe primero activar la cuenta. Activela <a href=\"" + url + "\"> aqui </a>" + "</br></br>" +
+                                            "Recuerde esto es un periodo de prueba por 15 dias, Para obtener una licencia escribenos al correo ventas@gn.com";
+                        MailMessage correo = new MailMessage();
+                        correo.From = new MailAddress("fer.core1096@gmail.com");
+                        correo.To.Add(para);
+                        correo.Subject = asunto;
+                        correo.Body = mensaje;
+                        correo.IsBodyHtml = true;
+                        SmtpClient smtp = new SmtpClient("smtp.gmail.com"); //cambiar
+                        string sCuentaCorreo = "fer.core1096@gmail.com";
+                        string sPassword = "FERNANDOgranados1";
+                        NetworkCredential credential = new NetworkCredential(sCuentaCorreo, sPassword);
+                        smtp.UseDefaultCredentials = false;
+                        smtp.Credentials = credential;
+                        smtp.Port = 587;
+                        smtp.EnableSsl = false;
+                        smtp.Send(correo);
+                        
+                        return Json(new { dt = rpt });
                     }
                 }
                 else
                 {
+                    return Json(new { dt = rpt });
 
                 }
 

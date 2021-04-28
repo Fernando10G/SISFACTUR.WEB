@@ -116,14 +116,14 @@ $("#btnsiguiente").on("click", function () {
 
 /**************************************************/
 
-$("#txtrazonsocail").keyup(function () {
-    let razonsocial = $("#txtrazonsocail").val();
+$("#txtrazonsocial").keyup(function () {
+    let razonsocial = $("#txtrazonsocial").val();
     if (razonsocial == "") {
-        $("#msjrazonsocail").html("* El campo razon social no debe estar vacio").css("color", "red");
-        $("#txtrazonsocail").css("border-color", "red");
+        $("#msjrazonsocial").html("* El campo razon social no debe estar vacio").css("color", "red");
+        $("#txtrazonsocial").css("border-color", "red");
     } else {
-        $("#msjrazonsocail").html("").css("color", "red");
-        $("#txtrazonsocail").css("border-color", "");
+        $("#msjrazonsocial").html("").css("color", "red");
+        $("#txtrazonsocial").css("border-color", "");
     }
 })
 
@@ -159,7 +159,7 @@ $("#txtemail").keyup(function () {
 
 $("#btnregistrar").on("click", function () {
 
-    let razonsocial = $("#txtrazonsocail").val();
+    let razonsocial = $("#txtrazonsocial").val();
     let ruc = $("#txtruc").val();
     let email = $("#txtemail").val();
     let idpais = $("#slpais").val();
