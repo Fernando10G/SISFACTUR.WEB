@@ -1,7 +1,18 @@
-﻿
+﻿@model modelList
+@using SISTEM.FACTUR.Models
 @{
     ViewBag.Title = "ActivarCuenta";
+    Layout = null;
 }
 
-<h2>ActivarCuenta</h2>
+<br />
+<br />
+
+<center>
+    <span><h2>@Model.msjActivarCuenta.response</h2></span>
+    <label>Para iniciar session ingrese<a href="https://localhost:44303/Home/Index">aquí</a></label>
+    <span>Recuerde que la cuenta esta activa por 15 dias. Para obtener una licencia escribenos</span>
+
+</center>
+
 

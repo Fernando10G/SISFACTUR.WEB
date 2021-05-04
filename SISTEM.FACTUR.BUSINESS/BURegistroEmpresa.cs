@@ -57,5 +57,18 @@ namespace SISTEM.FACTUR.BUSINESS
                 throw ex;
             }
         }
+
+
+        public ResponseRegistroEmpresa activarCuenta(string ruc, string token)
+        {
+            try
+            {
+                return clients.Get<ResponseRegistroEmpresa>(string.Format("RegistroEmpresa/activarCuenta?ruc={0}", ruc, token));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

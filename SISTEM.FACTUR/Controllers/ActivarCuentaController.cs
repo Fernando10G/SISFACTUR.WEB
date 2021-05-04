@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SISTEM.FACTUR.BUSINESS;
+using SISTEM.FACTUR.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +10,19 @@ namespace SISTEM.FACTUR.Controllers
 {
     public class ActivarCuentaController : Controller
     {
-        // GET: ActivarCuenta
-        public ActionResult ActivarCuenta()
+        private modelList model;
+            private  BURegistroEmpresa buregistroempresa;
+        public ActivarCuentaController()
         {
-            return View();
+
+            model = new modelList();
+            buregistroempresa = new BURegistroEmpresa();
+        }
+        public ActionResult ActivarCuenta(string ruc)
+        {
+            string token = "";
+            model.msjActivarCuenta = buregistroempresa.activarCuenta(ruc, token);
+            return View(model);
         }
 
       

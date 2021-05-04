@@ -102,7 +102,7 @@ namespace SISTEM.FACTUR.Controllers
                     rpt = buregistroempresa.insertarUserAdminEmpresa(paramss, token);
                     if (rpt.response == "ok")
                     {
-                        string url = string.Format("https://localhost:44303/ActivarCuenta/ActuvarCuenta?ruc=" + ruc);
+                        string url = string.Format("https://localhost:44303/ActivarCuenta/ActivarCuenta?ruc=" + ruc);
                         string para = email;
                         string asunto = "Activación de cuenta | Sistema de facturación e inventario";
                         string mensaje = "<b> GRACIAS POR REGISTRARSE</b>" + "</br></br>" + "Estas son tus credencialesde acceso" +

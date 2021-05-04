@@ -12,5 +12,6 @@ namespace SISTEM.FACTUR.Models
         public List<ResponseMoneda> listMoneda { get; set; }
         public List<ResponseTImpuestos> listTImpuesto { get; set; }
         public List<ResponsePImpuestos> listPImpuesto { get; set; }
+        public ResponseRegistroEmpresa msjActivarCuenta { get; set; }
     }
 }
