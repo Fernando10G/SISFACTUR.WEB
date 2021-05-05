@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BULogin.cs" />
     <Compile Include="BUPais.cs" />
     <Compile Include="BURegistroEmpresa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

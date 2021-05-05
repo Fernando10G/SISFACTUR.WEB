@@ -38,7 +38,7 @@
             <div class="col-md-12">
                 <div class="form-row">
                     <div class="input-data">
-                        <input type="text" name="txtrucdni" id="txtrucdni" required  onkeypress="return solonumeros(event)"/>
+                        <input type="text" name="txtrucdni" id="txtrucdni" required onkeypress="return solonumeros(event)" />
                         <div class="underline"></div>
                         <label>RUC O DNI</label>
                         <span id="msjrucdni"></span>
@@ -84,16 +84,16 @@
             </div>
             <div class="col-md-12">
                 <div class="form-row">
-                    <button type="button" class="btn btn-primary btn-block btn-flat">Ingresar</button>
+                    <button type="button" class="btn btn-primary btn-block btn-flat" id="btningresar">Ingresar</button>
 
                 </div>
 
             </div>
             <div class="col-md-12">
-                <div class="lbllogin"
-                <span><a href="#">Recuperar Contraseña</a></span>
-                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                <span><a href="@Url.Action("RegistroEmpresa","RegistroEmpresa")">Registrarse</a></span>
+                <div class="lbllogin">
+                    <span><a href="#">Recuperar Contraseña</a></span>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <span><a href="@Url.Action("RegistroEmpresa","RegistroEmpresa")">Registrarse</a></span>
 
                 </div>
 
@@ -110,3 +110,7 @@
 
 </body>
 </html>
+
+<script type="text/javascript" src="~/Scripts/app/login.js"></script>
+<script type="text/javascript" src="~/Scripts/js/validaciones.js"></script>
+<script type="text/javascript" src="~/Scripts/js/global.js"></script>

@@ -42,8 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Encrypt\Encrypt.cs" />
+    <Compile Include="Parametros\ENLogin.cs" />
     <Compile Include="Parametros\ENRegistroEmpresa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Response\ResponseLogin.cs" />
     <Compile Include="Response\ResponseMoneda.cs" />
     <Compile Include="Response\ResponsePais.cs" />
     <Compile Include="Response\ResponsePImpuestos.cs" />

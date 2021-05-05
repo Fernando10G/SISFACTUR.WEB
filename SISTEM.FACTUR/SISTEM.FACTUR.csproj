@@ -122,10 +122,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ActivarCuentaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RegistroEmpresaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ApplicationHellper.cs" />
+    <Compile Include="Helpers\SessionHelpers.cs" />
+    <Compile Include="Helpers\StringCipher.cs" />
     <Compile Include="Models\modelList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -351,6 +355,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\Imagenes\" />
     <Folder Include="Content\Plugins\Validarcontraseñas\js\" />
+    <Folder Include="Views\Login\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
