@@ -17,22 +17,28 @@ namespace SISTEM.FACTUR.Controllers
 
         public LoginController()
         {
-
             bulogin = new BULogin();
         }
+
+
         [HttpPost]
         public ActionResult Acceder(ENLogin paramss)
         {
             var clave = Encrypt.GetSHA256(paramss.pass);
             paramss.pass = clave;
+
             var rpt = bulogin.Acceder(paramss);
             Session.Set(GlobalKey.CurrentUser, rpt);
-            SetCurrentUser(rpt);
+            SetCurrenUser(rpt);
+
             return Json(new { dt = rpt });
         }
-        protected void SetCurrentUser(ResponseLogin login)
+
+
+        protected void SetCurrenUser(ResponseLogin login)
         {
             Session["Username"] = login;
         }
+
     }
 }

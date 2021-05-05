@@ -11,9 +11,9 @@ namespace SISTEM.FACTUR.ENTITY.Parametros
         public string ruc { get; set; }
         public string user { get; set; }
         public string pass { get; set; }
-        public string  proyecto { get; set; }
-        public string usertoken { get; set; }
-        public string passwordtoken { get; set; }
+        public string proyecto { get; set; } = "Factur";
+        public string usertoken { get; set; } = "SISTEM";
+        public string passwordtoken { get; set; } = "SISTEM";
 
 
     }

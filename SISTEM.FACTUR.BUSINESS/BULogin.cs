@@ -12,11 +12,14 @@ namespace SISTEM.FACTUR.BUSINESS
 {
     public class BULogin
     {
+
         private Client clients;
+
         public BULogin()
         {
             clients = new Client();
         }
+
 
         public ResponseLogin Acceder(ENLogin paramss)
         {
@@ -26,8 +29,11 @@ namespace SISTEM.FACTUR.BUSINESS
             }
             catch (Exception ex)
             {
+
                 throw ex;
             }
         }
+
+
     }
 }
