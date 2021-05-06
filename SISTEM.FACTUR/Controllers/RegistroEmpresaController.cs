@@ -42,7 +42,7 @@ namespace SISTEM.FACTUR.Controllers
         }
 
 
-        [AllowAnonymous]
+      
         [HttpPost]
         public ActionResult validarRegistro(ENRegistroEmpresa paramss)
         {
@@ -57,11 +57,12 @@ namespace SISTEM.FACTUR.Controllers
                                             string direccion, int idimpuesto, int idporcentaje, int vendeimpuesto, string username,
                                              string usuario, string contraseña)
         {
-            try {
+            try
+            {
 
                 var clave = Encrypt.GetSHA256(contraseña);
                 var filename = "";
-                if (file != null )
+                if (file != null)
                 {
                     string path = Server.MapPath("~/Content/img/img_empresas/" + ruc + "/");
                     string filePath = string.Empty;
@@ -76,6 +77,7 @@ namespace SISTEM.FACTUR.Controllers
                 }
 
                 var paramss = new ENRegistroEmpresa();
+
                 paramss.razonsocial = razonsocial;
                 paramss.ruc = ruc;
                 paramss.email = email;
@@ -96,7 +98,7 @@ namespace SISTEM.FACTUR.Controllers
                 string token = "";
                 var rpt = buregistroempresa.insertarEmpresa(paramss, token);
 
-                if(rpt.response == "ok")
+                if (rpt.response == "ok")
                 {
 
                     rpt = buregistroempresa.insertarUserAdminEmpresa(paramss, token);
@@ -127,19 +129,31 @@ namespace SISTEM.FACTUR.Controllers
                         smtp.Port = 587;
                         smtp.EnableSsl = false;
                         smtp.Send(correo);
-                        
+
                         return Json(new { dt = rpt });
                     }
+
+
+                    else
+                    {
+                        return Json(new { dt = rpt });
+
+                    }
                 }
+
                 else
                 {
+
                     return Json(new { dt = rpt });
 
                 }
 
-             
-                return Json(new { dt = rpt });
+
+
+
             }
+
+
             catch (Exception ex)
             {
                 throw ex;
